@@ -17,8 +17,10 @@
         </div>
 
     </div>
-<livewire:modal-search />
+
 </div>
+
+
 
 <script>
     

@@ -1,15 +1,3 @@
-<div class="connet-sorting mb-2">
-    <div class="btn-group">
-        <button class="btn btn-dark mr-3" data-toggle="modal" data-target="#modalSearchProduct">
-            <i class="fas fa-search">Buscar productos</i>
-        </button>
-
-        <button wire:click="printLast" class="btn btn-dark mr-3">
-            <i class="fas fa-search">Reimprimir última F7</i>
-        </button>
-    </div>
-</div>
-
 <div class="connet-sorting">
     <div class="connet-sorting-content">
         <div class="card simple-title-task ui-sortable-handle">

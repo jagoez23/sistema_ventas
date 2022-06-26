@@ -46,16 +46,12 @@ class SalesController extends Component
         'removeItem' => 'removeItem',
         'clearCart' => 'clearCart',
         'saveSale' => 'saveSale',
-        'scan-code-byid' => 'ScanCodeById'
+        
     ];
-
-    public function ScanCodeById(Product $product)
-    {
-        $this->IncreaseQuantity($product);
-    }
 
     public function ScanCode($barcode, $cant = 1)
     {
+        dd($barcode);
         $product = Product::where('barcode', $barcode)->first();
 
         if($product == null || empty($empty))
