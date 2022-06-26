@@ -20,29 +20,31 @@
                     <table class="table table-bordered table striped mt-1">
                         <thead class="text-white" style="background: #3B3F5C">
                             <tr>
-                                <th class="table-th text-white">Descripción</th>
-                                <th class="table-th text-white">Imagen</th>
-                                <th class="table-th text-white">Acciones</th>
+                                <th class="table-th text-white">Tipo</th>
+                                <th class="table-th text-white text-center">Valor</th>
+                                <th class="table-th text-white text-center">Imagen</th>
+                                <th class="table-th text-white text-center">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($categories as $category)
+                            @foreach ($data as $coin)
                                 <tr>
-                                    <td><h6>{{$category->name}}</h6></td>
+                                    <td><h6>{{$coin->type}}</h6></td>
+                                    <td><h6 class="text-center">${{number_format($coin->value)}}</h6></td>
                                     <td class="text-center">
                                         <span>
-                                            <img src="{{ asset('storage/categories/' .$category->image) }}" alt="imagen de ejemplo" height="70" width="80" class="rounded">
+                                            <img src="{{ asset('storage/denominations/' . $coin->image) }}" alt="imagen de ejemplo" height="70" width="80" class="rounded">
                                         </span>
                                     </td>
                                     
                                     <td class="text-center">
                                         <a href="javascript:void(0)"
-                                            wire:click="Edit({{$category->id}})"
+                                            wire:click="Edit({{$coin->id}})"
                                             class="btn btn-dark mtmobile" title="Editar">
                                                 <i class="fas fa-edit"></i>
                                         </a>
                                         <a href="javascript:void(0)"
-                                                onclick="Confirm('{{$category->id}}', '{{$category->products->count()}}')"
+                                                onclick="Confirm('{{$coin->id}}')"
                                                 class="btn btn-dark" title="Eliminar">
                                                 <i class="fas fa-trash"></i>
                                         </a>
@@ -51,12 +53,12 @@
                             @endforeach    
                         </tbody>
                     </table>
-                    {{$categories->links()}}
+                    {{$data->links()}}
                 </div>
             </div>
         </div>
     </div>
-    @include('livewire.category.form')
+    @include('livewire.denomination.form')
 </div>
 
 <script>
@@ -65,11 +67,20 @@
         window.livewire.on('show-modal', msg =>{
             $('#theModal').modal('show')
         });
-        window.livewire.on('category-added', msg =>{
+        window.livewire.on('item-added', msg =>{
             $('#theModal').modal('hide')
         });
-        window.livewire.on('category-updated', msg =>{
+        window.livewire.on('item-updated', msg =>{
             $('#theModal').modal('hide')
+        });
+        window.livewire.on('item-deleted', msg =>{
+            //noty
+        });
+        window.livewire.on('modal-hide', msg =>{
+            $('#theModal').modal('hide')
+        });
+        $('#theModal').on('hidden.bs.modal', function(e) {
+            $('.er').css('display','none')
         });
     });
 

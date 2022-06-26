@@ -13,4 +13,32 @@ class Category extends Model
         'name',
         'image',
     ]; 
+
+    //función para poder eliminar productos que esten asigandos a una categoria
+
+   public function products()
+   {
+        return $this->hasMany(Product::class);
+   }
+   
+   //accesor para validar si una categoría tiene imagen asociada
+   
+   public function getImagenAttribute()
+   {
+        if($this->image != null)
+            return(file_exists('storage/categories/' . $this->image) ? $this->image : 'noimage.jpg');
+        else
+            return 'noimage.jpg';    
+   }
+
+
+
+   /*public function getImagenAttribute()
+   {
+        if(file_exists('storage/categories' . $this->image))
+            return $this->image;
+        else
+            return 'noimage.jpg';        
+   }*/
+
 }

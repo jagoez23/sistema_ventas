@@ -3,7 +3,7 @@
         <nav id="compactSidebar">
             <ul class="menu-categories">
                 <li class="active">
-                    <a href="#" class="menu-toggle" data-active="true">
+                    <a href="{{url('categories')}}" class="menu-toggle" data-active="true">
                         <div class="base-menu">
                             <div class="base-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
@@ -19,7 +19,7 @@
                 </li>
 
                 <li class="">
-                    <a href="#" class="menu-toggle" data-active="false">
+                    <a href="{{url('products')}}" class="menu-toggle" data-active="false">
                         <div class="base-menu">
                             <div class="base-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
@@ -34,13 +34,12 @@
                 </li>
 
                 <li class="">
-                    <a href="#" class="menu-toggle" data-active="false">
+                    <a href="{{url('sales')}}" class="menu-toggle" data-active="false">
                         <div class="base-menu">
                             <div class="base-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-                                    class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line>
-                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                                 </svg>
                             </div>
                             <span>VENTAS</span>
@@ -81,8 +80,8 @@
                     <a href="#" class="menu-toggle" data-active="false">
                         <div class="base-menu">
                             <div class="base-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
-                                    stroke-linejoin="round" class="feather feather-command"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                                    class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>
                                 </svg>
                             </div>
                             <span>ASIGNAR</span>
@@ -104,11 +103,11 @@
                 </li>
 
                 <li class="">
-                    <a href="#" class="menu-toggle" data-active="false">
+                    <a href="{{url('coins')}}" class="menu-toggle" data-active="false">
                         <div class="base-menu">
                             <div class="base-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-                                    class="feather feather-database"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                                    class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                                 </svg>
                             </div>
                             <span>MONEDAS</span>
@@ -121,7 +120,7 @@
                         <div class="base-menu">
                             <div class="base-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-                                    class="feather feather-trello"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><rect x="7" y="7" width="3" height="9"></rect><rect x="14" y="7" width="3" height="5"></rect>
+                                    class="feather feather-bar-chart-2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line>
                                 </svg>
                             </div>
                             <span>ARQUEOS</span>

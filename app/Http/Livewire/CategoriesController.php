@@ -117,7 +117,26 @@ class CategoriesController extends Component
             }
         }
         $this->resetUI();
-        $this->emit('category-updated', 'Categoría actulizada');
+        $this->emit('category-updated', 'Categoría actualizada');
+    }
+
+    protected $listeners = [
+        'deleteRow' => 'Destroy'
+    ];
+
+    public function Destroy(Category $category)
+    {
+        $imageName = $category->image; //imagen temporal
+        $category->delete();
+
+        if($imageName !=null)
+        {
+            unlink('storage/categories/' . $imageName);
+        }
+
+        $this->resetUI();
+        $this->emit('category-deleted', 'Categoría eliminada');
+
     }
 
     public function resetUI()

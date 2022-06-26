@@ -13,5 +13,13 @@ class Denomination extends Model
         'type',
         'value',
         'image',
-    ]; 
+    ];
+    
+    public function getImagenAttribute()
+    {
+         if($this->image != null)
+             return(file_exists('storage/denominations/' . $this->image) ?  $this->image : 'noimage.jpg');
+         else
+             return 'noimage.jpg';    
+    }
 }
