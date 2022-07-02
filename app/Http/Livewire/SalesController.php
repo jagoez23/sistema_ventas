@@ -45,16 +45,16 @@ class SalesController extends Component
         'scan-code' => 'ScanCode',
         'removeItem' => 'removeItem',
         'clearCart' => 'clearCart',
-        'saveSale' => 'saveSale',
+        'saveSale' => 'saveSale'
         
     ];
 
     public function ScanCode($barcode, $cant = 1)
     {
-        dd($barcode);
+        //dd($barcode);
         $product = Product::where('barcode', $barcode)->first();
 
-        if($product == null || empty($empty))
+        if($product == null || empty($product))
         {
             $this->emit('scan-notfound','El producto no esta registrado');
         }else {
@@ -72,7 +72,8 @@ class SalesController extends Component
 
             Cart::add($product->id, $product->name, $product->price, $cant, $product->image);
             $this->total = Cart::getTotal();
-            $this->emit('scan-ok', 'Productp agregado');
+            $this->itemsQuantity = Cart::getTotalQuantity();
+            $this->emit('scan-ok', 'Producto agregado');
         }
     }
 

@@ -68,9 +68,8 @@
             box-shadow: none;
             border-radius: 30px;
         }
-           
-
 </style>
 @livewireStyles 
+
 
 

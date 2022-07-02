@@ -12,4 +12,10 @@ class SearchController extends Component
     {
         return view('livewire.search');
     }
+
+    /*protected $listeners =['scan-code' => 'scan'];
+    public function scan($code)
+    {
+        //dd($code);
+    }*/
 }
