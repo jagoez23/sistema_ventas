@@ -58,6 +58,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function(){
+        
         window.livewire.on('permission-added', Msg => {
             $('#theModal').modal('hide')
             noty(Msg)
