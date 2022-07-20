@@ -33,7 +33,7 @@
                         <tbody>
                             @foreach($data as $product)
                                 <tr>
-                                    <td><h6 class="text-center">{{$product->name}}</h6></td>
+                                    <td><h6 class="text-center text-uppercase">{{$product->name}}</h6></td>
                                     <td><h6 class="text-center">{{$product->barcode}}</h6></td>
                                     <td><h6 class="text-center">{{$product->category}}</h6></td>
                                     <td><h6 class="text-center">${{number_format($product->price)}}</h6></td>

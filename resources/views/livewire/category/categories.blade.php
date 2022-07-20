@@ -21,14 +21,14 @@
                         <thead class="text-white" style="background: #3B3F5C">
                             <tr>
                                 <th class="table-th text-white">Descripción</th>
-                                <th class="table-th text-white">Imagen</th>
-                                <th class="table-th text-white">Acciones</th>
+                                <th class="table-th text-white text-center">Imagen</th>
+                                <th class="table-th text-white text-center">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($categories as $category)
                                 <tr>
-                                    <td><h6>{{$category->name}}</h6></td>
+                                    <td class="text-uppercase"><h6>{{$category->name}}</h6></td>
                                     <td class="text-center">
                                         <span>
                                             <img src="{{ asset('storage/categories/' .$category->image) }}" alt="imagen de ejemplo" height="70" width="80" class="rounded">

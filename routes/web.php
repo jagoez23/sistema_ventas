@@ -8,6 +8,7 @@ use App\Http\Livewire\SalesController;
 use App\Http\Livewire\RolesController;
 use App\Http\Livewire\PermissionsController;
 use App\Http\Livewire\AssignController;
+use App\Http\Livewire\UsersController;
 
 
 Route::get('/', function () {
@@ -25,3 +26,4 @@ Route::get('sales', SalesController::class);
 Route::get('roles', RolesController::class);
 Route::get('permissions', PermissionsController::class);
 Route::get('assing', AssignController::class);
+Route::get('users', UsersController::class);

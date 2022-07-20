@@ -47,7 +47,7 @@
                                                             {{$permission->checked == 1 ? 'checked' : ''}}
                                                         >
                                                         <span class="new-control-indicator"></span>
-                                                            <h6>{{$permission->name}}</h6>
+                                                            <h6 class="text-uppercase">{{$permission->name}}</h6>
                                                     </label>
                                                 </div>
                                             </td>

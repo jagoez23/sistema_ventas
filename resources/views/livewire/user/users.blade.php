@@ -20,60 +20,70 @@
                     <table class="table table-bordered table striped mt-1">
                         <thead class="text-white" style="background: #3B3F5C">
                             <tr>
-                                <th class="table-th text-white">Id</th>
-                                <th class="table-th text-white text-center">Descripción</th>
+                                <th class="table-th text-white">Usuario</th>
+                                <th class="table-th text-white text-center">Teléfono</th>
+                                <th class="table-th text-white text-center">Email</th>
+                                <th class="table-th text-white text-center">Estado</th>
+                                <th class="table-th text-white text-center">Perfil</th>
+                                <th class="table-th text-white text-center">Imagen</th>
                                 <th class="table-th text-white text-center">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($permissions as $permission)
+                            @foreach ($data as $r)
                                 <tr>
-                                    <td><h6>{{$permission->id}}</h6></td>
-                                    <td class="text-center text-uppercase">
-                                        <h6>{{$permission->name}}</h6>
+                                    <td class="text-uppercase"><h6>{{$r->name}}</h6></td>
+                                    <td class="text-center"><h6>{{$r->phone}}</h6></td>
+                                    <td class="text-center"><h6>{{$r->email}}</h6></td>
+                                    <td class="text-center">
+                                        <span class="badge {{ $r->status == 'Activo' ? 'badge-success' : 'badge-danger' }}
+                                        text-uppercase">{{$r->status}}</span>
                                     </td>
+                                    <td class="text-center text-uppercase"><h6>{{$r->profile}}</h6></td>
+
+                                    <td class="text-center">
+                                        @if($r->image !=null)
+                                          <img src="{{ asset('storage/users/' . $r->image)}}" alt="imagen" class="card-img-top img-fluid">   
+                                        @endif
+                                    </td>
+
                                     <td class="text-center">
                                         <a href="javascript:void(0)" 
-                                            wire:click="Edit({{$permission->id}})"
-                                            class="btn btn-dark mtmobile" title="Editar registro">
-                                            <i class="fas fa-edit"></i>
+                                          wire:click="Edit({{$r->id}})"
+                                          class="btn btn-dark mtmobile" title="Edit">
+                                          <i class="fas fa-edit"></i>
                                         </a>
+
                                         <a href="javascript:void(0)"
-                                            onclick="Confirm('{{$permission->id}}')" 
-                                            class="btn btn-dark" title="Eliminar registro">
+                                            onclick="Confirm('{{$r->id}}')" 
+                                            class="btn btn-dark" title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
+
                                     </td>
                                 </tr>
-                            @endforeach    
+                            @endforeach
                         </tbody>
                     </table>
-                    {{$permissions->links()}}
+                    {{$data->links()}}
                 </div>
             </div>
         </div>
     </div>
-    @include('livewire.permissions.form')
+    @include('livewire.user.form')
 </div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function(){
-        
-        window.livewire.on('permission-added', Msg => {
+        window.livewire.on('user-added', Msg => {
             $('#theModal').modal('hide')
             noty(Msg)
         })
-        window.livewire.on('permission-updated', Msg => {
+        window.livewire.on('user-updated', Msg => {
             $('#theModal').modal('hide')
             noty(Msg)
         })
-        window.livewire.on('permission-deleted', Msg => {
-            noty(Msg)
-        })
-        window.livewire.on('permission-exits', Msg => {
-            noty(Msg)
-        })
-        window.livewire.on('permission-error', Msg => {
+        window.livewire.on('user-deleted', Msg => {
             noty(Msg)
         })
         window.livewire.on('hide-modal', Msg => {
@@ -81,6 +91,9 @@
         })
         window.livewire.on('show-modal', Msg => {
             $('#theModal').modal('show')
+        })
+        window.livewire.on('user-withsales', Msg => {
+            noty(Msg)
         })
     });
 
@@ -97,10 +110,11 @@
             confirmButtonText: 'Aceptar'
         }).then(function(result) {
             if(result.value) {
-                window.livewire.emit('destroy', id)
+                window.livewire.emit('deleteRow', id)
                 swal.close()
             }
         })
     }
 
 </script>
+

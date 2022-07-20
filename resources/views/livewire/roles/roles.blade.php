@@ -29,7 +29,7 @@
                             @foreach($roles as $role)
                                 <tr>
                                     <td><h6>{{$role->id}}</h6></td>
-                                    <td class="text-center">
+                                    <td class="text-center text-uppercase">
                                         <h6>{{$role->name}}</h6>
                                     </td>
                                     <td class="text-center">
